@@ -70,12 +70,12 @@ setInterval(function() {
 
 
 client.on("message", async message => {
-	if (db.get("autogive") == "1") {
-	  if (message.author.id != "408785106942164992") return; 
-	  if (db.get("owomessagestatus") == "1") {
-		if (db.get("owomessage") != message.channel.id) return;
-		if (message.content.indexOf(client.user.username) != "-1") {
-			if (message.content.indexOf("you currently have") == "-1") return;
+        if (db.get("autogive") == "1") {
+          if (message.author.id != "408785106942164992") return;
+          if (db.get("owomessagestatus") == "1") {
+                if (db.get("owomessage") != message.channel.id) return;
+                if (message.content.indexOf(client.user.username) != "-1") {
+                        if (message.content.indexOf("you currently have") == "-1") return;
 
 			let cash = message.content.split(" ")[6].match(/\d/g).join("")
 	
@@ -91,16 +91,16 @@ client.on("message", async message => {
 				message.channel.send("owo give <@"+db.get("ownerid")+"> "+(Number(cash)-1000)).then(msg => {
 					msg.delete();
 					console.log("Otomatik para gönderme işlemi tamamlandı.")
-					message.channel.send("> ✅ | Otomatik para gönderme işlemi tamamlandı.");
-				});
-				};
+                                message.channel.send("> ✅ | Otomatik para gönderme işlemi tamamlandı.");
+                                });
+                                };
 
-			}
-			return;
-	}
-}
-	}
-},60000*10);
+                        }
+                        return;
+               }
+           }
+       }
+});
 
 setInterval(function() {
 	if (db.get("owosystemstatus") == "1") {
